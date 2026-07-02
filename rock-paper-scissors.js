@@ -1,6 +1,6 @@
-function get_computer_choice();
+/*function get_computer_choice();
 function get_human_choice();
-function assign_int (choice);
+function assign_int (choice);*/
 
 console.log("It's working :)\n");
 
@@ -31,16 +31,12 @@ function assign_int (choice)
   {
     case "rock":
       return 1;
-      break;
     case "paper":
       return 2;
-      break;
     case "scissors":
       return 3;
-      break;
     default:
       console.log("Make sure you entered either \"rock\", \"paper\", or \"scissors\"\n.");
       return -1;
-      break;
   }
 }
