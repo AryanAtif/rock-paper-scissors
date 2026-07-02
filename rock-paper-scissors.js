@@ -9,7 +9,7 @@ function get_computer_choice()
       computers_choice = Math.floor(Math.random() * 4); // number
       continue;
     }
-    console.log("Computers Choice: " + computers_choice + "\n");
+    console.log("Computers Choice: ");
     if (computers_choice == 1) {console.log ( "rock\n");}
     else if (computers_choice == 2) {console.log ( "paper\n");}
     else if (computers_choice == 3) {console.log ( "scissors\n");}
