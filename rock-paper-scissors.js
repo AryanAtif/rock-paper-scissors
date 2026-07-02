@@ -1,19 +1,15 @@
-/*function get_computer_choice();
-function get_human_choice();
-function assign_int (choice);*/
-
-console.log("It's working :)\n");
 
 function get_computer_choice()
 {
   let computers_choice = Math.floor(Math.random() * 4);
   while (1)
   {
-    if (puters_choice == 0)                           // since we get zero a lot less number of times than 1, 2, and 3 to get closer to 
+    if (computers_choice == 0)                           // since we get zero a lot less number of times than 1, 2, and 3 to get closer to 
     {                                                // an equal probability of getting the number we should ditch zero for an another  
       computers_choice = Math.floor(Math.random() * 4); // number
       continue;
     }
+    console.log("Computers Choice: " + computers_choice + "\n");
     return computers_choice;
   }
 }
@@ -36,7 +32,58 @@ function assign_int (choice)
     case "scissors":
       return 3;
     default:
-      console.log("Make sure you entered either \"rock\", \"paper\", or \"scissors\"\n.");
       return -1;
   }
 }
+function play_round ()
+{
+  let human_selection= get_human_choice ();
+  let computer_selection = get_computer_choice ();
+ 
+  let score = get_score(human_selection, computer_selection);
+
+  if (score == -1) 
+  {
+    console.log("Make sure you entered either \"rock\", \"paper\", or \"scissors\"\n.");
+  }
+  else if (score == 0)
+  {
+    console.log("It was a draw!\n");  
+  }
+  else if (score == 1)
+  {
+    console.log("You Won :\)\n");  
+  }
+  else if (score == 2)
+  {
+    console.log("You Lost :\(\n");  
+  }
+  console.log("Current Score: You:" + human_score + " Your Opponent: " + computer_score + "\n");
+}
+
+function get_score ( human_selection, computer_selection)
+{
+  selection_difference = human_selection - computer_selection;
+  if (selection_difference == 0)
+  {
+    return 0; // draw
+  }
+  else if (selection_difference == -1 || selection_difference == 2 )
+  {
+    human_score++; // human won
+    return 1;
+  }
+  else if (selection_difference == 1 || selection_difference == -2 )
+  {
+    computer_score++; // computer won
+    return 2;
+ } 
+}
+
+ /**** 
+ * Main Program Execution
+ ****/
+console.log("It's working :)\n");
+
+let computer_score = 0, human_score = 0;
+play_round ();
