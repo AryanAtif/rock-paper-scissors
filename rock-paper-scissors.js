@@ -17,6 +17,7 @@ function get_computer_choice()
 function get_human_choice()
 {
  let user_choice = prompt("Enter your choice: ");
+  console.log ("You entered: " + user_choice + "\n");
  return assign_int (user_choice);
 }
 
@@ -32,6 +33,7 @@ function assign_int (choice)
     case "scissors":
       return 3;
     default:
+      console.log("Make sure you entered either \"rock\", \"paper\", or \"scissors\"\n.");
       return -1;
   }
 }
@@ -42,10 +44,8 @@ function play_round ()
  
   let score = get_score(human_selection, computer_selection);
 
-  if (score == -1) 
-  {
-    console.log("Make sure you entered either \"rock\", \"paper\", or \"scissors\"\n.");
-  }
+  if (score == -1) { }  
+ 
   else if (score == 0)
   {
     console.log("It was a draw!\n");  
@@ -68,16 +68,25 @@ function get_score ( human_selection, computer_selection)
   {
     return 0; // draw
   }
-  else if (selection_difference == -1 || selection_difference == 2 )
+  else if (selection_difference == 1 || selection_difference == -2 )
   {
     human_score++; // human won
     return 1;
   }
-  else if (selection_difference == 1 || selection_difference == -2 )
+  else if (selection_difference == -1 || selection_difference == 2 )
   {
     computer_score++; // computer won
     return 2;
  } 
+}
+
+function play_game ()
+{
+  play_round ();
+  play_round ();
+  play_round ();
+  play_round ();
+  play_round ();
 }
 
  /**** 
@@ -86,4 +95,5 @@ function get_score ( human_selection, computer_selection)
 console.log("It's working :)\n");
 
 let computer_score = 0, human_score = 0;
-play_round ();
+
+play_game ();
