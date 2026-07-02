@@ -1,3 +1,7 @@
+function get_computer_choice();
+function get_human_choice();
+function assign_int (choice);
+
 console.log("It's working :)\n");
 
 function get_computer_choice()
@@ -14,3 +18,29 @@ function get_computer_choice()
   }
 }
 
+function get_human_choice()
+{
+ let user_choice = prompt("Enter your choice: ");
+ return assign_int (user_choice);
+}
+
+function assign_int (choice)
+{
+  let lower_choice = choice.toLowerCase();
+  switch (lower_choice)
+  {
+    case "rock":
+      return 1;
+      break;
+    case "paper":
+      return 2;
+      break;
+    case "scissors":
+      return 3;
+      break;
+    default:
+      console.log("Make sure you entered either \"rock\", \"paper\", or \"scissors\"\n.");
+      return -1;
+      break;
+  }
+}
