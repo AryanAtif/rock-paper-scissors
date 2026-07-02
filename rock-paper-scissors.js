@@ -10,6 +10,9 @@ function get_computer_choice()
       continue;
     }
     console.log("Computers Choice: " + computers_choice + "\n");
+    if (computers_choice == 1) {console.log ( "rock\n");}
+    else if (computers_choice == 2) {console.log ( "paper\n");}
+    else if (computers_choice == 3) {console.log ( "scissors\n");}
     return computers_choice;
   }
 }
@@ -17,7 +20,7 @@ function get_computer_choice()
 function get_human_choice()
 {
  let user_choice = prompt("Enter your choice: ");
-  console.log ("You entered: " + user_choice + "\n");
+ console.log ("You entered: " + user_choice + "\n");
  return assign_int (user_choice);
 }
 
