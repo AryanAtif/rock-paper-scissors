@@ -19,15 +19,31 @@ function get_computer_choice()
 
 function get_human_choice()
 {
- let user_choice = prompt("Enter your choice: ");
- console.log ("You entered: " + user_choice + "\n");
+  const button = document.querySelectorAll("button");
+
+  let user_choice = 0;
+
+  button.forEach( (btn) => {
+    btn.addEventListener ("click", (e) => user_choice = btn.id); 
+  })
+
  return assign_int (user_choice);
 }
 
+
 function assign_int (choice)
 {
-  let lower_choice = choice.toLowerCase();
-  switch (lower_choice)
+  console.log (`assign_int() recieved:  ${choice} \n`);
+  if (choice === "rock") return 1;
+  else if (choice === "paper") return 2;
+  else if (choice === "scissors") return 3;
+  else
+  {
+    console.log("Make sure you entered either \"rock\", \"paper\", or \"scissors\"\n.");
+    return -1;
+  }
+
+  /*switch (choice)
   {
     case "rock":
       return 1;
@@ -38,11 +54,11 @@ function assign_int (choice)
     default:
       console.log("Make sure you entered either \"rock\", \"paper\", or \"scissors\"\n.");
       return -1;
-  }
+  }*/
 }
-function play_round ()
+
+function play_round (human_selection)
 {
-  let human_selection= get_human_choice ();
   let computer_selection = get_computer_choice ();
  
   let score = get_score(human_selection, computer_selection);
@@ -83,20 +99,20 @@ function get_score ( human_selection, computer_selection)
  } 
 }
 
-function play_game ()
-{
-  play_round ();
-  play_round ();
-  play_round ();
-  play_round ();
-  play_round ();
-}
 
  /**** 
  * Main Program Execution
  ****/
+
 console.log("It's working :)\n");
 
 let computer_score = 0, human_score = 0;
 
-play_game ();
+/* Create UI */
+let human_selection = get_human_choice();
+
+if (human_selection >=1 && human_selection <=3)
+{
+  console.log ("You entered: " + user_choice + "\n");
+  play_round(human_selection);
+}
