@@ -17,20 +17,6 @@ function get_computer_choice()
   }
 }
 
-function get_human_choice()
-{
-  const button = document.querySelectorAll("button");
-
-  let user_choice = 0;
-
-  button.forEach( (btn) => {
-    btn.addEventListener ("click", (e) => user_choice = btn.id); 
-  })
-
- return assign_int (user_choice);
-}
-
-
 function assign_int (choice)
 {
   console.log (`assign_int() recieved:  ${choice} \n`);
@@ -42,42 +28,6 @@ function assign_int (choice)
     console.log("Make sure you entered either \"rock\", \"paper\", or \"scissors\"\n.");
     return -1;
   }
-
-  /*switch (choice)
-  {
-    case "rock":
-      return 1;
-    case "paper":
-      return 2;
-    case "scissors":
-      return 3;
-    default:
-      console.log("Make sure you entered either \"rock\", \"paper\", or \"scissors\"\n.");
-      return -1;
-  }*/
-}
-
-function play_round (human_selection)
-{
-  let computer_selection = get_computer_choice ();
- 
-  let score = get_score(human_selection, computer_selection);
-
-  if (score == -1) { }  
- 
-  else if (score == 0)
-  {
-    console.log("It was a draw!\n");  
-  }
-  else if (score == 1)
-  {
-    console.log("You Won :\)\n");  
-  }
-  else if (score == 2)
-  {
-    console.log("You Lost :\(\n");  
-  }
-  console.log("Current Score: You:" + human_score + " Your Opponent: " + computer_score + "\n");
 }
 
 function get_score ( human_selection, computer_selection)
@@ -99,6 +49,36 @@ function get_score ( human_selection, computer_selection)
  } 
 }
 
+function play_round (human_selection, computer_selection)
+{
+  let score = get_score(human_selection, computer_selection);
+
+  if (score == -1) { }  
+ 
+  else if (score == 0)
+  {
+    console.log("It was a draw!\n");  
+  }
+  else if (score == 1)
+  {
+    console.log("You Won :\)\n");  
+  }
+  else if (score == 2)
+  {
+    console.log("You Lost :\(\n");  
+  }
+  console.log("Current Score: You:" + human_score + " Your Opponent: " + computer_score + "\n");
+}
+
+function init_game ()
+{
+  const buttons = document.querySelectorAll("button");
+  buttons.forEach ((button) =>
+  { // human choice = button.id
+    button.addEventListener ("click", () => play_round (assign_int(button.id), get_computer_choice()))
+  })
+
+}
 
  /**** 
  * Main Program Execution
@@ -109,10 +89,5 @@ console.log("It's working :)\n");
 let computer_score = 0, human_score = 0;
 
 /* Create UI */
-let human_selection = get_human_choice();
+init_game();
 
-if (human_selection >=1 && human_selection <=3)
-{
-  console.log ("You entered: " + user_choice + "\n");
-  play_round(human_selection);
-}
