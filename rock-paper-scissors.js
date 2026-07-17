@@ -33,9 +33,9 @@ function assign_int (choice)
 function reassign_str (choice) // opposite of the above function
 {
   console.log (`reassign_str() recieved:  ${choice} \n`);
-  if (choice === 1) return "rock";
-  else if (choice === 2) return "paper";
-  else if (choice === 3) return "scissors";
+  if (choice === 1) return "ROCK";
+  else if (choice === 2) return "PAPER";
+  else if (choice === 3) return "SCISSORS";
 }
 
 function get_score ( human_selection, computer_selection)
@@ -47,12 +47,12 @@ function get_score ( human_selection, computer_selection)
   }
   else if (selection_difference == 1 || selection_difference == -2 )
   {
-    human_score++; // human won
+    human_wins++; // human won
     return 1;
   }
   else if (selection_difference == -1 || selection_difference == 2 )
   {
-    computer_score++; // computer won
+    computer_wins++; // computer won
     return 2;
  } 
 }
@@ -78,6 +78,9 @@ function display_result (human_selection, computer_selection, winner)
   let result_subtext = document.createElement ("p");
   score_board.appendChild(result_subtext);
 
+  let choices = document.createElement ("p");
+  score_board.appendChild(choices);
+  
   let human_score = document.createElement("p");
   score_board.appendChild(human_score);
 
@@ -90,6 +93,9 @@ function display_result (human_selection, computer_selection, winner)
     human_selection = reassign_str (human_selection); 
     computer_selection= reassign_str (computer_selection); 
     result_subtext.textContent = `${human_selection} beats ${computer_selection}`;
+    choices.textContent = `You chose: ${human_selection}, Computer chose ${computer_selection}`;
+    human_score.textContent = `Your score : ${human_wins}`;
+    computer_score.textContent = `Computer score: ${computer_wins}`;
   }
   else if (winner == "computer")
   {
@@ -97,13 +103,19 @@ function display_result (human_selection, computer_selection, winner)
     human_selection = reassign_str (human_selection); 
     computer_selection= reassign_str (computer_selection); 
     result_subtext.textContent = `${computer_selection} beats ${human_selection}`;
+    choices.textContent = `You chose: ${human_selection}, Computer chose ${computer_selection}`;
+    human_score.textContent = `Your score : ${human_wins}`;
+    computer_score.textContent = `Computer score: ${computer_wins}`;
   }
   else
   {
     result.textContent = "It was a draw!";
     human_selection = reassign_str (human_selection); 
     computer_selection= reassign_str (computer_selection); 
-    result_subtext.textContent = `${human_selection} can't beat itself`;
+    result_subtext.textContent = `${human_selection} can't beat itself `;
+    choices.textContent = `You chose: ${human_selection}. Computer chose ${computer_selection}`;
+    human_score.textContent = `Your score : ${human_wins}`;
+    computer_score.textContent = `Computer score: ${computer_wins}`;
   }
 
 }
@@ -115,20 +127,21 @@ function play_round (human_selection, computer_selection)
  
   else if (score == 0)
   {
-    display_result (human_selection, computer_selection, 0);
     console.log("It was a draw!\n");  
+    display_result (human_selection, computer_selection, 0);
   }
   else if (score == 1)
   {
-    display_result (human_selection, computer_selection, "human");
     console.log("You Won :\)\n");  
+    display_result (human_selection, computer_selection, "human");
+
   }
   else if (score == 2)
   {
     console.log("You Lost :\(\n");  
     display_result (human_selection, computer_selection, "computer");
   }
-  console.log("Current Score: You:" + human_score + " Your Opponent: " + computer_score + "\n");
+  console.log("Current Score: You:" + human_wins + " Your Opponent: " + computer_wins + "\n");
   rounds_played++;
 }
 
@@ -148,7 +161,7 @@ function init_game ()
 
 console.log("It's working :)\n");
 
-let computer_score = 0, human_score = 0;
+let computer_wins = 0, human_wins= 0;
 let rounds_played = 0;
 /* Create UI */
 init_game();
