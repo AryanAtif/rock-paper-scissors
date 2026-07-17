@@ -56,26 +56,32 @@ function get_score ( human_selection, computer_selection)
     return 2;
  } 
 }
+
+function remove_previous_result()
+{
+
+  let score_board = document.querySelector(".score_board");
+  score_board.remove();
+}
+
 function display_result (human_selection, computer_selection, winner)
 {
+  if (rounds_played >= 1) remove_previous_result ();
+
   let score_board = document.createElement("div");
-  score_board.classList.add ("score board");
+  score_board.classList.add ("score_board");
   document.body.appendChild (score_board);
 
   let result = document.createElement ("h3");
-  result.classList.add ("result");
   score_board.appendChild(result);
 
   let result_subtext = document.createElement ("p");
-  result_subtext.classList.add ("result_subtext");
   score_board.appendChild(result_subtext);
 
   let human_score = document.createElement("p");
-  human_score.classList.add ("human_score");
   score_board.appendChild(human_score);
 
   let computer_score = document.createElement("p");
-  computer_score.classList.add ("computer_score");
   score_board.appendChild(computer_score);
   
   if (winner == "human")
@@ -109,7 +115,6 @@ function play_round (human_selection, computer_selection)
  
   else if (score == 0)
   {
-    remove_previous_result ();
     display_result (human_selection, computer_selection, 0);
     console.log("It was a draw!\n");  
   }
@@ -124,6 +129,7 @@ function play_round (human_selection, computer_selection)
     display_result (human_selection, computer_selection, "computer");
   }
   console.log("Current Score: You:" + human_score + " Your Opponent: " + computer_score + "\n");
+  rounds_played++;
 }
 
 function init_game ()
@@ -143,7 +149,7 @@ function init_game ()
 console.log("It's working :)\n");
 
 let computer_score = 0, human_score = 0;
-
+let rounds_played = 0;
 /* Create UI */
 init_game();
 
