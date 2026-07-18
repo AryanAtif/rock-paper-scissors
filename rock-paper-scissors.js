@@ -89,11 +89,15 @@ function display_result (human_selection, computer_selection, winner)
   let choices = document.createElement ("p");
   score_board.appendChild(choices);
   
+  let score = document.createElement("div");
+  score.classList.add ("score");
+  score_board.appendChild(score);
+
   let human_score = document.createElement("p");
-  score_board.appendChild(human_score);
+  score.appendChild(human_score);
 
   let computer_score = document.createElement("p");
-  score_board.appendChild(computer_score);
+  score.appendChild(computer_score);
   
   if (winner == "human")
   {
