@@ -17,19 +17,20 @@ body
   margin-left: 150px;
   margin-right: 150px;
   padding: 30px;
-  padding-bottom: 200px;
+  padding-bottom: 100px;
   
 }
 .buttons
 {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 button
 {
   padding: 12px;
   padding-left: 20px;
   padding-right: 20px;
+  background-color: #b3b3b3;
 }
 .instruction 
 {
