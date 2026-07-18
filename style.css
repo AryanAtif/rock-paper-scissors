@@ -1,0 +1,40 @@
+.game
+{
+  display: flex;
+  flex-direction: column;
+  border: 2px black;
+  margin: 40px;
+  margin-left: 150px;
+  margin-right: 150px;
+  
+}
+.buttons
+{
+  display: flex;
+  justify-content: space-between;
+}
+button
+{
+  padding: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.instruction 
+{
+  align-self: center;
+  padding: 5px;
+}
+.score_board
+{
+
+}
+
+.result 
+{
+  color: blue;
+}
+
+.result_subtext
+{
+  color: blue;
+}

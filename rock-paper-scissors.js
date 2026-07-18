@@ -68,14 +68,18 @@ function display_result (human_selection, computer_selection, winner)
 {
   if (rounds_played >= 1) remove_previous_result ();
 
+  let game = document.querySelector (".game");
+
   let score_board = document.createElement("div");
   score_board.classList.add ("score_board");
-  document.body.appendChild (score_board);
+  game.appendChild (score_board);
 
   let result = document.createElement ("h3");
+  result.classList.add ("result");
   score_board.appendChild(result);
 
   let result_subtext = document.createElement ("p");
+  result_subtext.classList.add ("result_subtext");
   score_board.appendChild(result_subtext);
 
   let choices = document.createElement ("p");
