@@ -95,9 +95,6 @@ function display_result (human_selection, computer_selection, winner)
   let result_subtext = document.createElement ("p");
   result_subtext.classList.add ("result_subtext");
   result.appendChild(result_subtext);
-
-  let choices = document.createElement ("p");
-  score_board.appendChild(choices);
   
   let score = document.createElement("div");
   score.classList.add ("score");
@@ -117,7 +114,6 @@ function display_result (human_selection, computer_selection, winner)
     human_selection = reassign_str (human_selection); 
     computer_selection= reassign_str (computer_selection); 
     result_subtext.textContent = `${human_selection} beats ${computer_selection}`;
-    choices.textContent = `You chose: ${human_selection}, Computer chose ${computer_selection}`;
     human_score.textContent = `Your score : ${human_wins}`;
     computer_score.textContent = `Computer score: ${computer_wins}`;
   }
@@ -127,7 +123,6 @@ function display_result (human_selection, computer_selection, winner)
     human_selection = reassign_str (human_selection); 
     computer_selection= reassign_str (computer_selection); 
     result_subtext.textContent = `${computer_selection} beats ${human_selection}`;
-    choices.textContent = `You chose: ${human_selection}, Computer chose ${computer_selection}`;
     human_score.textContent = `Your score : ${human_wins}`;
     computer_score.textContent = `Computer score: ${computer_wins}`;
   }
@@ -137,7 +132,6 @@ function display_result (human_selection, computer_selection, winner)
     human_selection = reassign_str (human_selection); 
     computer_selection= reassign_str (computer_selection); 
     result_subtext.textContent = `${human_selection} can't beat itself `;
-    choices.textContent = `You chose: ${human_selection}. Computer chose ${computer_selection}`;
     human_score.textContent = `Your score : ${human_wins}`;
     computer_score.textContent = `Computer score: ${computer_wins}`;
   }
