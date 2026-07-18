@@ -5,15 +5,19 @@ body
     font-weight: 600;
     font-style: normal;
     font-display: swap;
+    color: white;
+    background-color: black;
 }
 .game
 {
   display: flex;
   flex-direction: column;
-  border: 2px black;
+  border: 2px solid white;
   margin: 40px;
   margin-left: 150px;
   margin-right: 150px;
+  padding: 30px;
+  padding-bottom: 200px;
   
 }
 .buttons
