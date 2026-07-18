@@ -64,6 +64,16 @@ function remove_previous_result()
   score_board.remove();
 }
 
+function display_overall_result (result)
+{
+  if (computer_wins >= 5) result.textContent = "Computer Won The Game!";
+
+  else if (human_wins >= 5)  result.textContent = "You Won The Game!";
+
+  computer_wins = 0;
+  human_wins = 0;
+}
+
 function display_result (human_selection, computer_selection, winner)
 {
   if (rounds_played >= 1) remove_previous_result ();
@@ -99,6 +109,8 @@ function display_result (human_selection, computer_selection, winner)
   let computer_score = document.createElement("p");
   score.appendChild(computer_score);
   
+  if (human_wins >= 5 || computer_wins >= 5) { display_overall_result(result_title); return; }
+
   if (winner == "human")
   {
     result_title.textContent = "You Won!";
