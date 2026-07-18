@@ -37,14 +37,20 @@ button
 .score_board
 {
   display: flex;
+  flex-direction: column;
 }
-
-.result 
+.result
 {
-  color: blue;
+  align-self: center;
+}
+.result_title 
+{
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .result_subtext
 {
-  color: blue;
+  font-size: 20px;
+  font-weight: bold;
 }

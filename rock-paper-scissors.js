@@ -74,13 +74,17 @@ function display_result (human_selection, computer_selection, winner)
   score_board.classList.add ("score_board");
   game.appendChild (score_board);
 
-  let result = document.createElement ("h3");
+  let result = document.createElement ("div");
   result.classList.add ("result");
   score_board.appendChild(result);
 
+  let result_title = document.createElement ("h3");
+  result_title.classList.add ("result_title");
+  result.appendChild(result_title);
+  
   let result_subtext = document.createElement ("p");
   result_subtext.classList.add ("result_subtext");
-  score_board.appendChild(result_subtext);
+  result.appendChild(result_subtext);
 
   let choices = document.createElement ("p");
   score_board.appendChild(choices);
@@ -93,7 +97,7 @@ function display_result (human_selection, computer_selection, winner)
   
   if (winner == "human")
   {
-    result.textContent = "You Won!";
+    result_title.textContent = "You Won!";
     human_selection = reassign_str (human_selection); 
     computer_selection= reassign_str (computer_selection); 
     result_subtext.textContent = `${human_selection} beats ${computer_selection}`;
@@ -103,7 +107,7 @@ function display_result (human_selection, computer_selection, winner)
   }
   else if (winner == "computer")
   {
-    result.textContent = "You Lost!";
+    result_title.textContent = "You Lost!";
     human_selection = reassign_str (human_selection); 
     computer_selection= reassign_str (computer_selection); 
     result_subtext.textContent = `${computer_selection} beats ${human_selection}`;
@@ -113,7 +117,7 @@ function display_result (human_selection, computer_selection, winner)
   }
   else
   {
-    result.textContent = "It was a draw!";
+    result_title.textContent = "It was a draw!";
     human_selection = reassign_str (human_selection); 
     computer_selection= reassign_str (computer_selection); 
     result_subtext.textContent = `${human_selection} can't beat itself `;
