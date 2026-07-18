@@ -1,3 +1,11 @@
+body
+{
+    font-family: 'JetBrains Mono';
+    src: url('./fonts/webfonts/JetBrainsMono-Bold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
 .game
 {
   display: flex;
@@ -21,12 +29,14 @@ button
 }
 .instruction 
 {
+  font-size: 35px;
   align-self: center;
-  padding: 5px;
+  padding-top: 5px;
+  padding-bottom: 25px;
 }
 .score_board
 {
-
+  display: flex;
 }
 
 .result 
